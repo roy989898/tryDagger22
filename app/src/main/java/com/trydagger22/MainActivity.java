@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     Vehicle vehicle;
     private TextView tvShow;
+    private DaggerVehicleComponent.Builder comPonent;
 
 
     @Override
@@ -24,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         vehicle.getSpeed();
 
         tvShow.setText(vehicle.getSpeed() + "");*/
-        vehicle = DaggerVehicleComponent.builder().vehicleModule(new VehicleModule()).build().inject();
+        comPonent = DaggerVehicleComponent.builder();
+        vehicle = comPonent.vehicleModule(new VehicleModule()).build().inject();
         vehicle.getSpeed();
 
         tvShow.setText(vehicle.getSpeed() + "");
