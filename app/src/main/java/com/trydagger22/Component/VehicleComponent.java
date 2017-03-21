@@ -12,6 +12,6 @@ import dagger.Component;
 @Component(modules = {VehicleModule.class})
 public interface VehicleComponent {
 
-    Vehicle provideVehicle();
+    Vehicle inject();
 
 }
